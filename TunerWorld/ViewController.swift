@@ -12,6 +12,10 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var arrayOfCars = [Car]()
     var arrayOfMakes = [String]()
+    var arrayOfModels = [String]()
+    var tableViewLoadNumber = 0
+    
+    
     @IBOutlet weak var makeTableView: UITableView!
 
     override func viewDidLoad()
@@ -71,26 +75,86 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 }
             }
             self.makeTableView.reloadData()
+//            print(self.returnArrayOfModels("Acura"))
+//            print(self.returnArrayOfModelYears("CL"))
         }
         
         task.resume()
         
         
-
-        
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("myCell")!
-        cell.textLabel?.text = arrayOfMakes[indexPath.row]
+        if tableViewLoadNumber == 0
+        {
+            cell.textLabel?.text = arrayOfMakes[indexPath.row]
+           
+        }
+        else
+        {
+            cell.textLabel?.text = arrayOfModels[indexPath.row]
+        }
+        
+        
         return cell
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayOfMakes.count
+        if tableViewLoadNumber == 0
+        {
+            return arrayOfMakes.count
+ 
+        }
+        else
+        {
+            return arrayOfModels.count
+        }
+        
+        
+            }
+    
+    func returnArrayOfModels(make: String) -> [String]
+    {
+        var arrayOfModels:[String] = [String]()
+        
+        for car in arrayOfCars
+        {
+            if car.make == make
+            {
+                var currentModel = car.model
+                if !(arrayOfModels.contains(currentModel))
+                {
+                    arrayOfModels.append(car.model)
+                }
+            }
+        }
+        return arrayOfModels
     }
     
-
+    func returnArrayOfModelYears(model: String) -> [String]
+    {
+        var arrayOfModelYears:[String] = [String]()
+        for car in arrayOfCars
+        {
+            if car.model == model
+            {
+                arrayOfModelYears.append(car.year.stringValue)
+            }
+        }
+        return arrayOfModelYears
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //print(arrayOfMakes[indexPath.row])
+        
+        arrayOfModels = returnArrayOfModels(arrayOfMakes[indexPath.row])
+        tableViewLoadNumber = 1
+        tableView.reloadData()
+        
+        
+    }
+    
     
     
 }
