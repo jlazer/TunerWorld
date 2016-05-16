@@ -15,9 +15,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var arrayOfModels = [String]()
     var tableViewLoadNumber = 0
     var arrayOfModelYears:[String] = [String]()
+    var moveToNextViewController = false
 
     
     @IBOutlet weak var makeTableView: UITableView!
+    @IBOutlet weak var tableViewBackButton: UIBarButtonItem!
 
     override func viewDidLoad()
     {
@@ -148,6 +150,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if car.model == model
             {
                 self.arrayOfModelYears.append(car.year.stringValue)
+                
+                print(car.year.stringValue)
             }
         }
         return self.arrayOfModelYears
@@ -166,7 +170,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         else
         {
             arrayOfModelYears = returnArrayOfModelYears(arrayOfModels[indexPath.row])
-            print(arrayOfModelYears)
+            //print(arrayOfModelYears)
             tableViewLoadNumber = 2
             tableView.reloadData()
         }
@@ -174,7 +178,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    
+    @IBAction func tableViewBackButton(sender: UIBarButtonItem) {
+        tableViewLoadNumber -= 1
+        self.arrayOfModelYears.removeAll()
+
+        
+        if tableViewLoadNumber < 0
+        {
+            tableViewLoadNumber = 0
+        }
+        makeTableView.reloadData()
+    }
+   
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        
+//        if tableViewLoadNumber == 2
+//        {
+//            self.performSegueWithIdentifier("selectedCar", sender: nil)
+//            
+//            moveToNextViewController = true
+//        }
+//        return true
+//        
+//
+//    }
     
 }
-

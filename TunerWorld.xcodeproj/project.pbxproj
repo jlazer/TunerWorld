@@ -16,6 +16,7 @@
 		E75A0D6B1CD7A5DE001F38D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E75A0D691CD7A5DE001F38D1 /* LaunchScreen.storyboard */; };
 		E75A0D761CD7A5DE001F38D1 /* TunerWorldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A0D751CD7A5DE001F38D1 /* TunerWorldTests.swift */; };
 		E75A0D811CD7A5DE001F38D1 /* TunerWorldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A0D801CD7A5DE001F38D1 /* TunerWorldUITests.swift */; };
+		E76180091CEA685E007D7D32 /* detailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76180081CEA685E007D7D32 /* detailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E75A0D7C1CD7A5DE001F38D1 /* TunerWorldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunerWorldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75A0D801CD7A5DE001F38D1 /* TunerWorldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerWorldUITests.swift; sourceTree = "<group>"; };
 		E75A0D821CD7A5DE001F38D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E76180081CEA685E007D7D32 /* detailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = detailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				E75A0D5D1CD7A5DE001F38D1 /* AppDelegate.swift */,
 				E75A0D5F1CD7A5DE001F38D1 /* ViewController.swift */,
+				E76180081CEA685E007D7D32 /* detailViewController.swift */,
 				E72753E21CE4D62A00D88E5B /* CarClass.swift */,
 				E75A0D611CD7A5DE001F38D1 /* Main.storyboard */,
 				E75A0D671CD7A5DE001F38D1 /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 				E75A0D601CD7A5DE001F38D1 /* ViewController.swift in Sources */,
 				E72753E31CE4D62A00D88E5B /* CarClass.swift in Sources */,
 				E75A0D661CD7A5DE001F38D1 /* TunerWorld.xcdatamodeld in Sources */,
+				E76180091CEA685E007D7D32 /* detailViewController.swift in Sources */,
 				E75A0D5E1CD7A5DE001F38D1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
