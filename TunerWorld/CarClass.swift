@@ -15,6 +15,9 @@ class Car
     var year: NSNumber
     var engine: String
     var transmission: String
+    var image: String
+    var horsepower: String
+    var productionPlace: String
     
     init(make mk: String, model md: String, year y: NSNumber)
     {
@@ -23,17 +26,27 @@ class Car
         year = y
         engine = ""
         transmission = ""
+        image = ""
+        horsepower = ""
+        productionPlace = ""
     }
     
     
     
-    init(make mk: String, model md: String, year y: NSNumber, engine e: String, transmission t: String)
+    init(make mk: String, model md: String, year y: NSNumber, engine e: String, transmission t: String, image i: String, horsepower hp: String, productionPlace pp: String)
     {
         make = mk
         model = md
         year = y
         engine = e
         transmission = t
+        image = i
+        horsepower = hp
+        productionPlace = pp
+        
+        
+        
+        
         
     }
     
@@ -44,6 +57,9 @@ class Car
         year = NSNumber()
         engine = ""
         transmission = ""
+        image = ""
+        horsepower = ""
+        productionPlace = ""
     }
     
 }
