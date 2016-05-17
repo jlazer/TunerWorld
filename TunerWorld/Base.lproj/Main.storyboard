@@ -28,9 +28,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="93F-PG-E9c" kind="show" identifier="selectedCar" id="LFH-jX-ItW"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -51,6 +48,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="makeTableView" destination="S70-c4-huD" id="ZWV-kb-YLc"/>
+                        <segue destination="93F-PG-E9c" kind="show" identifier="selectedCar" id="Oby-9M-jhv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
