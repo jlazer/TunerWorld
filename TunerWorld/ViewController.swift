@@ -14,9 +14,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var arrayOfMakes = [String]()
     var arrayOfModels = [String]()
     var tableViewLoadNumber = 0
-    
+    var arrayOfModelYears:[String] = [String]()
+    var moveToNextViewController = false
+
     
     @IBOutlet weak var makeTableView: UITableView!
+    @IBOutlet weak var tableViewBackButton: UIBarButtonItem!
 
     override func viewDidLoad()
     {
@@ -65,8 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             }
                         }
                     }
-                    print(self.arrayOfCars.count)
-                    //print(self.arrayOfCars[32].make)
+
                     
                     
                 } catch {
@@ -90,9 +92,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.textLabel?.text = arrayOfMakes[indexPath.row]
            
         }
-        else
+        if tableViewLoadNumber == 1
         {
             cell.textLabel?.text = arrayOfModels[indexPath.row]
+
+        }
+        if tableViewLoadNumber == 2 
+        {
+            cell.textLabel?.text = arrayOfModelYears[indexPath.row]
         }
         
         
@@ -105,9 +112,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             return arrayOfMakes.count
  
         }
-        else
+        if tableViewLoadNumber == 1
         {
             return arrayOfModels.count
+        }
+        else
+        {
+            return arrayOfModelYears.count
         }
         
         
@@ -133,28 +144,63 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func returnArrayOfModelYears(model: String) -> [String]
     {
-        var arrayOfModelYears:[String] = [String]()
         for car in arrayOfCars
         {
             if car.model == model
             {
-                arrayOfModelYears.append(car.year.stringValue)
+                self.arrayOfModelYears.append(car.year.stringValue)
+                
+                print(car.year.stringValue)
             }
         }
-        return arrayOfModelYears
+        return self.arrayOfModelYears
+        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //print(arrayOfMakes[indexPath.row])
-        
-        arrayOfModels = returnArrayOfModels(arrayOfMakes[indexPath.row])
-        tableViewLoadNumber = 1
-        tableView.reloadData()
+        if tableViewLoadNumber == 0
+        {
+            arrayOfModels = returnArrayOfModels(arrayOfMakes[indexPath.row])
+            tableViewLoadNumber = 1
+            tableView.reloadData()
+ 
+        }
+        if tableViewLoadNumber == 1
+        {
+            arrayOfModelYears = returnArrayOfModelYears(arrayOfModels[indexPath.row])
+            //print(arrayOfModelYears)
+            tableViewLoadNumber = 2
+            tableView.reloadData()
+        }
+//        if tableViewLoadNumber == 2
+//        {
+//            moveToNextViewController = true
+//            //self.performSegueWithIdentifier("selectedCar", sender: nil)
+//            
+//        }
         
         
     }
     
-    
+    @IBAction func tableViewBackButton(sender: UIBarButtonItem) {
+        tableViewLoadNumber -= 1
+        self.arrayOfModelYears.removeAll()
+
+        
+        if tableViewLoadNumber < 0
+        {
+            tableViewLoadNumber = 0
+        }
+        makeTableView.reloadData()
+    }
+   
+//    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+//        
+//        self.performSegueWithIdentifier("selectedCar", sender: nil)
+//        return true
+//        
+//
+//    }
     
 }
-
