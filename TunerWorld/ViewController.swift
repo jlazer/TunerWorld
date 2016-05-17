@@ -167,13 +167,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.reloadData()
  
         }
-        else
+        if tableViewLoadNumber == 1
         {
             arrayOfModelYears = returnArrayOfModelYears(arrayOfModels[indexPath.row])
             //print(arrayOfModelYears)
             tableViewLoadNumber = 2
             tableView.reloadData()
         }
+//        if tableViewLoadNumber == 2
+//        {
+//            moveToNextViewController = true
+//            //self.performSegueWithIdentifier("selectedCar", sender: nil)
+//            
+//        }
         
         
     }
@@ -192,12 +198,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
    
 //    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
 //        
-//        if tableViewLoadNumber == 2
-//        {
-//            self.performSegueWithIdentifier("selectedCar", sender: nil)
-//            
-//            moveToNextViewController = true
-//        }
+//        self.performSegueWithIdentifier("selectedCar", sender: nil)
 //        return true
 //        
 //
