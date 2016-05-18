@@ -1,18 +1,14 @@
 //
-//  detailViewController.swift
+//  SpecsViewController.swift
 //  TunerWorld
 //
-//  Created by student1 on 5/16/16.
+//  Created by mobileapps on 5/18/16.
 //  Copyright © 2016 JohnHerseyHighSchool. All rights reserved.
 //
 
 import UIKit
 
-class detailViewController: UIViewController {
-    @IBOutlet weak var makeLabel: UILabel!
-    @IBOutlet weak var modelLabel: UILabel!
-    @IBOutlet weak var carImage: UIImageView!
-
+class SpecsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
