@@ -167,24 +167,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //self.selectedMake = makeTableView.indexPathForSelectedRow
         //print(selectedMake)
         //print(makeTableView.indexPathForSelectedRow!)
-        print(indexPath.row)
+        //print(indexPath.row)
         //selectedMake = arrayOfMakes(indexPath.row)
-        print(arrayOfMakes[indexPath.row])
         
         if tableViewLoadNumber == 1
         {
             arrayOfModels = returnArrayOfModels(arrayOfMakes[indexPath.row])
             tableView.reloadData()
+            //print(arrayOfMakes[indexPath.row])
+            selectedMake = arrayOfMakes[indexPath.row]
+            print(selectedMake)
+            
         }
         else if tableViewLoadNumber == 2
         {
             arrayOfModelYears = returnArrayOfModelYears(arrayOfModels[indexPath.row])
             tableView.reloadData()
-            
+            //print(arrayOfModels[indexPath.row])
+            selectedModel = arrayOfModels[indexPath.row]
+            print(selectedModel)
         }
         else
         {
             performSegueWithIdentifier("selectedCar", sender: nil)
+            //print(arrayOfModelYears[indexPath.row])
+            selectedYear = arrayOfModelYears[indexPath.row]
+            print(selectedYear)
         }
         
         //print(tableViewLoadNumber)
@@ -195,6 +203,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func tableViewBackButton(sender: UIBarButtonItem) {
         tableViewLoadNumber -= 1
         self.arrayOfModelYears.removeAll()
+        selectedMake = ""
+        selectedModel = ""
+        selectedYear = ""
         
         
         if tableViewLoadNumber < 0
@@ -203,5 +214,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         makeTableView.reloadData()
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let nvc = segue.destinationViewController as! detailViewController
+        
+    }
+    
+    
+    
+    
+    
+    
     
 }
