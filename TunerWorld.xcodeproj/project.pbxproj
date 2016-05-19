@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40FEDDF41CECD8CA004BEA4A /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FEDDF31CECD8C9004BEA4A /* ColorViewController.swift */; };
+		40FEDE141CECDE73004BEA4A /* SpecsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FEDE131CECDE73004BEA4A /* SpecsViewController.swift */; };
 		E72753E31CE4D62A00D88E5B /* CarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72753E21CE4D62A00D88E5B /* CarClass.swift */; };
 		E75A0D5E1CD7A5DE001F38D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A0D5D1CD7A5DE001F38D1 /* AppDelegate.swift */; };
 		E75A0D601CD7A5DE001F38D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75A0D5F1CD7A5DE001F38D1 /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40FEDDF31CECD8C9004BEA4A /* ColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		40FEDE131CECDE73004BEA4A /* SpecsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpecsViewController.swift; sourceTree = "<group>"; };
 		E72753E21CE4D62A00D88E5B /* CarClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarClass.swift; sourceTree = "<group>"; };
 		E75A0D5A1CD7A5DE001F38D1 /* TunerWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TunerWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E75A0D5D1CD7A5DE001F38D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,8 @@
 				E76180081CEA685E007D7D32 /* detailViewController.swift */,
 				E72753E21CE4D62A00D88E5B /* CarClass.swift */,
 				E75A0D611CD7A5DE001F38D1 /* Main.storyboard */,
+				40FEDE131CECDE73004BEA4A /* SpecsViewController.swift */,
+				40FEDDF31CECD8C9004BEA4A /* ColorViewController.swift */,
 				E75A0D671CD7A5DE001F38D1 /* Assets.xcassets */,
 				E75A0D691CD7A5DE001F38D1 /* LaunchScreen.storyboard */,
 				E75A0D6C1CD7A5DE001F38D1 /* Info.plist */,
@@ -269,6 +275,8 @@
 				E72753E31CE4D62A00D88E5B /* CarClass.swift in Sources */,
 				E75A0D661CD7A5DE001F38D1 /* TunerWorld.xcdatamodeld in Sources */,
 				E76180091CEA685E007D7D32 /* detailViewController.swift in Sources */,
+				40FEDDF41CECD8CA004BEA4A /* ColorViewController.swift in Sources */,
+				40FEDE141CECDE73004BEA4A /* SpecsViewController.swift in Sources */,
 				E75A0D5E1CD7A5DE001F38D1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
