@@ -141,7 +141,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="overheadcar" translatesAutoresizingMaskIntoConstraints="NO" id="OZP-ym-0EI">
-                                <rect key="frame" x="18" y="99" width="284" height="469"/>
+                                <rect key="frame" x="33" y="99" width="254" height="469"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -150,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9M-od-VLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="993"/>
+            <point key="canvasLocation" x="1497" y="1017"/>
         </scene>
         <!--Color View Controller-->
         <scene sceneID="BEx-bg-Hzp">
@@ -165,8 +165,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbd-8U-aNf">
-                                <rect key="frame" x="205" y="102" width="95" height="404"/>
-                                <color key="backgroundColor" red="0.97454568610000003" green="0.0" blue="0.022973667319999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="205" y="82" width="95" height="404"/>
+                                <color key="backgroundColor" red="0.038935122279999998" green="0.033517611820000001" blue="0.037649211359999997" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
