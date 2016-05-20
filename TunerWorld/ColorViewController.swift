@@ -13,7 +13,7 @@ class ColorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1.0)
+    //UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1.0)
 
     }
 

@@ -216,6 +216,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let nvc = segue.destinationViewController as! detailViewController
+        nvc.selectedMake = selectedMake
+        nvc.selectedModel = selectedModel
+        nvc.selectedYear = selectedYear
+        
         
     }
     
