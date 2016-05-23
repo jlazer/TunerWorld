@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var selectedModel = String()
     var selectedYear = String()
     
+    @IBOutlet weak var tableViewBackButtonOutlet: UIBarButtonItem!
     @IBOutlet weak var makeTableView: UITableView!
     @IBOutlet weak var tableViewBackButton: UIBarButtonItem!
     
@@ -86,7 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewWillAppear(animated: Bool) {
         tableViewLoadNumber = 0
-        makeTableView.reloadData()
+        tableViewBackButton(tableViewBackButtonOutlet)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -188,10 +189,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         else
         {
-            performSegueWithIdentifier("selectedCar", sender: nil)
+            
             //print(arrayOfModelYears[indexPath.row])
             selectedYear = arrayOfModelYears[indexPath.row]
             print(selectedYear)
+            performSegueWithIdentifier("selectedCar", sender: nil)
         }
         
         //print(tableViewLoadNumber)
@@ -215,11 +217,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //print("year: \(selectedYear) model: \(selectedModel) make: \(selectedMake)")
         let nvc = segue.destinationViewController as! detailViewController
         nvc.selectedMake = selectedMake
         nvc.selectedModel = selectedModel
         nvc.selectedYear = selectedYear
         
+        nvc.makeNicename = selectedMake
+        nvc.modelNicename = selectedModel
         
     }
     

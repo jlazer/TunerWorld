@@ -15,7 +15,12 @@ class detailViewController: UIViewController {
     var selectedMake = ""
     var selectedModel = ""
     var selectedYear = ""
-    var style = NSArray()
+    var makeNicename = ""
+    var modelNicename = ""
+    
+    
+    
+    var styleJson = NSArray()
     
     
     
@@ -23,7 +28,18 @@ class detailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let myString = "https://api.edmunds.com/api/vehicle/v2/\(selectedMake)/\(selectedModel)/\(selectedYear)/styles?fmt=json&api_key=rduby6uckm74q7f3jy72x344"
+        makeNicename = makeNicename.lowercaseString
+        makeNicename = makeNicename.stringByReplacingOccurrencesOfString(" ", withString: "-")
+        modelNicename = modelNicename.lowercaseString
+        modelNicename = modelNicename.stringByReplacingOccurrencesOfString(" ", withString: "-")
+        print(makeNicename)
+        print(modelNicename)
+        print(selectedYear)
+        makeLabel.text = selectedMake
+        modelLabel.text = selectedModel
+        
+        
+        let myString = "https://api.edmunds.com/api/vehicle/v2/\(makeNicename)/\(modelNicename)/\(selectedYear)/styles?view=full&fmt=json&api_key=rduby6uckm74q7f3jy72x344"
         print(myString)
         let requestURL: NSURL = NSURL(string: myString )!
         
@@ -39,8 +55,39 @@ class detailViewController: UIViewController {
             {
                 do{
                     let results = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                    //self.style = results.objectForKey("styles") as! NSArray
-                    //print(r)
+                    self.styleJson = results.objectForKey("styles") as! NSArray
+                    //print(self.styleJson)
+                    
+                    var engineCode = ""
+                    var cylinderCount = ""
+                    var displacement = ""
+                    var configuration = ""
+                    var horsepower = ""
+                    var torque = ""
+                    var compressionRatio = ""
+                    var aspiration = ""
+                    var peakPower = ""
+                    var peakTorque = ""
+                    var timing = ""
+                    var gear = ""
+                    
+                    var transmissionName = ""
+                    var transmissionType = ""
+                    var numberOfSpeeds = ""
+                    
+                    var driveWheels = ""
+                    var msrp = ""
+                    var numberProduced = ""
+                    var mpgHighway = ""
+                    var mpgCity = ""
+                    
+                    for thing1 in styleJson.objectAtIndex(0) as! Dictionary
+                    {
+                        engineCode = styleJson.objectAtIndex(0).objectForKey("manufacturerEngineCode") as! String
+                    }
+                    
+                    
+                    
                     
                 } catch {
                     print("error serializing JSON: \(error)")
