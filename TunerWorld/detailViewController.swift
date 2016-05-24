@@ -18,6 +18,29 @@ class detailViewController: UIViewController {
     var makeNicename = ""
     var modelNicename = ""
     
+    var engineCode = ""
+    var cylinderCount = NSNumber()
+    var displacement = NSNumber()
+    var configuration = ""
+    var horsepower = NSNumber()
+    var torque = NSNumber()
+    var compressionRatio = NSNumber()
+    var aspiration = ""
+    var peakPower = NSNumber()
+    var peakTorque = NSNumber()
+    var timing = ""
+    var gear = ""
+    
+    var transmissionName = ""
+    var transmissionType = ""
+    var numberOfSpeeds = ""
+    
+    var driveWheels = ""
+    var msrp = NSNumber()
+    var numberProduced = NSNumber()
+    var mpgHighway = NSNumber()
+    var mpgCity = NSNumber()
+    
     
     
     var styleJson = NSArray()
@@ -58,33 +81,35 @@ class detailViewController: UIViewController {
                     self.styleJson = results.objectForKey("styles") as! NSArray
                     //print(self.styleJson)
                     
-                    var engineCode = ""
-                    var cylinderCount = ""
-                    var displacement = ""
-                    var configuration = ""
-                    var horsepower = ""
-                    var torque = ""
-                    var compressionRatio = ""
-                    var aspiration = ""
-                    var peakPower = ""
-                    var peakTorque = ""
-                    var timing = ""
-                    var gear = ""
                     
-                    var transmissionName = ""
-                    var transmissionType = ""
-                    var numberOfSpeeds = ""
-                    
-                    var driveWheels = ""
-                    var msrp = ""
-                    var numberProduced = ""
-                    var mpgHighway = ""
-                    var mpgCity = ""
                     
                     for thing1 in self.styleJson
                     {
-                        print(thing1.objectForKey("engine"))
-                        //engineCode = styleJson.objectAtIndex(0).objectForKey("manufacturerEngineCode") as! String
+                        //print(thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode"))
+                        self.engineCode = thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode") as! String
+                        self.cylinderCount = thing1.objectForKey("engine")?.objectForKey("cylinder") as! NSNumber
+                        self.displacement = thing1.objectForKey("engine")?.objectForKey("displacement") as! NSNumber
+                        self.configuration = thing1.objectForKey("engine")?.objectForKey("configuration") as! String
+                        self.horsepower = thing1.objectForKey("engine")?.objectForKey("horsepower") as! NSNumber
+                        self.torque = thing1.objectForKey("engine")?.objectForKey("torque") as! NSNumber
+                        self.compressionRatio = thing1.objectForKey("engine")?.objectForKey("compressionRatio") as! NSNumber
+                        self.aspiration = thing1.objectForKey("engine")?.objectForKey("compressorType") as! String
+                        self.peakPower = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("horsepower") as! NSNumber
+                        self.peakTorque = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("torque") as! NSNumber
+                        self.timing = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("timing") as! String
+                        self.gear = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("gear") as! String
+                        
+                        self.transmissionName = thing1.objectForKey("transmission")?.objectForKey("name") as! String
+                        self.transmissionType = thing1.objectForKey("transmission")?.objectForKey("transmissionType") as! String
+                        self.numberOfSpeeds = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
+                        
+                        self.driveWheels = thing1.objectForKey("drivenWheels") as! String
+                        //self.msrp = thing1.objectForKey("price")?.objectForKey("baseMsrp") as! NSNumber
+                        //print(thing1.objectAtIndex(0))
+                        //self.numberProduced = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
+                        self.mpgCity = thing1.objectForKey("MPG")?.objectForKey("city") as! NSNumber
+                        self.mpgHighway = thing1.objectForKey("MPG")?.objectForKey("highway") as! NSNumber
+                        
                     }
                     
                     
