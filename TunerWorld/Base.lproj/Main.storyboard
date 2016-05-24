@@ -141,8 +141,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="overheadcar" translatesAutoresizingMaskIntoConstraints="NO" id="OZP-ym-0EI">
-                                <rect key="frame" x="33" y="99" width="254" height="469"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOPVIEW" translatesAutoresizingMaskIntoConstraints="NO" id="OZP-ym-0EI">
+                                <rect key="frame" x="4" y="99" width="313" height="469"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -210,6 +210,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="overheadcar" width="340" height="728"/>
+        <image name="TOPVIEW" width="1360" height="2048"/>
     </resources>
 </document>
