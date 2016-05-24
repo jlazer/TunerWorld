@@ -32,15 +32,15 @@ class detailViewController: UIViewController {
         makeNicename = makeNicename.stringByReplacingOccurrencesOfString(" ", withString: "-")
         modelNicename = modelNicename.lowercaseString
         modelNicename = modelNicename.stringByReplacingOccurrencesOfString(" ", withString: "-")
-        print(makeNicename)
-        print(modelNicename)
-        print(selectedYear)
+//        print(makeNicename)
+//        print(modelNicename)
+//        print(selectedYear)
         makeLabel.text = selectedMake
         modelLabel.text = selectedModel
         
         
         let myString = "https://api.edmunds.com/api/vehicle/v2/\(makeNicename)/\(modelNicename)/\(selectedYear)/styles?view=full&fmt=json&api_key=rduby6uckm74q7f3jy72x344"
-        print(myString)
+        //print(myString)
         let requestURL: NSURL = NSURL(string: myString )!
         
         
@@ -81,9 +81,10 @@ class detailViewController: UIViewController {
                     var mpgHighway = ""
                     var mpgCity = ""
                     
-                    for thing1 in styleJson.objectAtIndex(0) as! Dictionary
+                    for thing1 in self.styleJson
                     {
-                        engineCode = styleJson.objectAtIndex(0).objectForKey("manufacturerEngineCode") as! String
+                        print(thing1.objectForKey("engine"))
+                        //engineCode = styleJson.objectAtIndex(0).objectForKey("manufacturerEngineCode") as! String
                     }
                     
                     

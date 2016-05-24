@@ -176,7 +176,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.reloadData()
             //print(arrayOfMakes[indexPath.row])
             selectedMake = arrayOfMakes[indexPath.row]
-            print(selectedMake)
+//            print(selectedMake)
             
         }
         else if tableViewLoadNumber == 2
@@ -185,14 +185,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.reloadData()
             //print(arrayOfModels[indexPath.row])
             selectedModel = arrayOfModels[indexPath.row]
-            print(selectedModel)
+//            print(selectedModel)
         }
         else
         {
             
             //print(arrayOfModelYears[indexPath.row])
             selectedYear = arrayOfModelYears[indexPath.row]
-            print(selectedYear)
+//            print(selectedYear)
             performSegueWithIdentifier("selectedCar", sender: nil)
         }
         
