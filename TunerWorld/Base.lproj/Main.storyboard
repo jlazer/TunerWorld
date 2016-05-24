@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="1497" y="349"/>
         </scene>
-        <!--View Controller-->
+        <!--Specs View Controller-->
         <scene sceneID="PCM-vc-tOK">
             <objects>
-                <viewController id="0fM-cz-wKr" sceneMemberID="viewController">
+                <viewController id="0fM-cz-wKr" customClass="SpecsViewController" customModule="TunerWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8aU-ZU-Cos"/>
                         <viewControllerLayoutGuide type="bottom" id="OeX-2V-T4M"/>
@@ -141,6 +141,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V1x-PB-j9C">
+                                <rect key="frame" x="4" y="105" width="313" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TOPVIEW" translatesAutoresizingMaskIntoConstraints="NO" id="OZP-ym-0EI">
                                 <rect key="frame" x="4" y="99" width="313" height="469"/>
                             </imageView>
@@ -148,6 +154,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="infoTextView" destination="V1x-PB-j9C" id="iUh-Jj-5WM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9M-od-VLq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
