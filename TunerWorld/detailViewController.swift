@@ -9,6 +9,7 @@
 import UIKit
 
 class detailViewController: UIViewController {
+    @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var makeLabel: UILabel!
     @IBOutlet weak var modelLabel: UILabel!
     @IBOutlet weak var carImage: UIImageView!
@@ -60,10 +61,11 @@ class detailViewController: UIViewController {
 //        print(selectedYear)
         makeLabel.text = selectedMake
         modelLabel.text = selectedModel
+        yearLabel.text = selectedYear
         
         
         let myString = "https://api.edmunds.com/api/vehicle/v2/\(makeNicename)/\(modelNicename)/\(selectedYear)/styles?view=full&fmt=json&api_key=rduby6uckm74q7f3jy72x344"
-        //print(myString)
+        print(myString)
         let requestURL: NSURL = NSURL(string: myString )!
         
         
@@ -86,6 +88,7 @@ class detailViewController: UIViewController {
                     for thing1 in self.styleJson
                     {
                         //print(thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode"))
+                        //Not all cars have an engine code. how can we deal with this.
                         self.engineCode = thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode") as! String
                         self.cylinderCount = thing1.objectForKey("engine")?.objectForKey("cylinder") as! NSNumber
                         self.displacement = thing1.objectForKey("engine")?.objectForKey("displacement") as! NSNumber
@@ -104,12 +107,13 @@ class detailViewController: UIViewController {
                         self.numberOfSpeeds = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
                         
                         self.driveWheels = thing1.objectForKey("drivenWheels") as! String
+                        
                         //self.msrp = thing1.objectForKey("price")?.objectForKey("baseMsrp") as! NSNumber
                         //print(thing1.objectAtIndex(0))
                         //self.numberProduced = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
-                        self.mpgCity = thing1.objectForKey("MPG")?.objectForKey("city") as! NSNumber
-                        self.mpgHighway = thing1.objectForKey("MPG")?.objectForKey("highway") as! NSNumber
-                        
+                        //self.mpgCity = thing1.objectForKey("MPG")?.objectForKey("city") as! String
+                        //self.mpgHighway = thing1.objectForKey("MPG")?.objectForKey("highway") as! String
+                       
                     }
                     
                     
@@ -126,6 +130,30 @@ class detailViewController: UIViewController {
         task.resume()
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let nvc = segue.destinationViewController as! SpecsViewController
+        nvc.selectedMake = selectedMake
+        nvc.selectedModel = selectedModel
+        nvc.selectedYear = selectedYear
+        nvc.engineCode = engineCode
+        nvc.cylinderCount = cylinderCount
+        nvc.displacement = displacement
+        nvc.configuration = configuration
+        nvc.horsepower = horsepower
+        nvc.torque = torque
+        nvc.compressionRatio = compressionRatio
+        nvc.aspiration = aspiration
+        nvc.peakPower = peakPower
+        nvc.peakTorque = peakTorque
+        nvc.timing = timing
+        nvc.gear = gear
+        nvc.transmissionName = transmissionName
+        nvc.transmissionType = transmissionType
+        nvc.numberOfSpeeds = numberOfSpeeds
+        nvc.driveWheels = driveWheels
+        
+        }
+
     
 }
