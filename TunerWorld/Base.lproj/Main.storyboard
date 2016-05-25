@@ -189,13 +189,6 @@
                                 <rect key="frame" x="0.0" y="126" width="146" height="422"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ec3-YX-RpG">
-                                <rect key="frame" x="100" y="72" width="121" height="29"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zbd-8U-aNf">
                                 <rect key="frame" x="188" y="126" width="112" height="422"/>
                                 <color key="backgroundColor" red="0.038935122279999998" green="0.033517611820000001" blue="0.037649211359999997" alpha="1" colorSpace="calibratedRGB"/>

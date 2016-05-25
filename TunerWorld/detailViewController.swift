@@ -31,6 +31,7 @@ class detailViewController: UIViewController {
     var peakTorque = NSNumber()
     var timing = ""
     var gear = ""
+    var engineSize = NSNumber()
     
     var transmissionName = ""
     var transmissionType = ""
@@ -89,19 +90,61 @@ class detailViewController: UIViewController {
                     {
                         //print(thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode"))
                         //Not all cars have an engine code. how can we deal with this.
-                        self.engineCode = thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode") as! String
+
+                        
+                        if let value1 = thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode") as? String
+                        {
+                            self.engineCode = value1
+                        }
+                        else
+                        {
+                            self.engineCode = ""
+                        }
                         self.cylinderCount = thing1.objectForKey("engine")?.objectForKey("cylinder") as! NSNumber
-                        self.displacement = thing1.objectForKey("engine")?.objectForKey("displacement") as! NSNumber
+                        
+                        
+                        if let value2 = thing1.objectForKey("engine")?.objectForKey("displacement") as? NSNumber
+                        {
+                            self.displacement = value2
+                        }
+                        else
+                        {
+                            
+                        }
+                        
                         self.configuration = thing1.objectForKey("engine")?.objectForKey("configuration") as! String
                         self.horsepower = thing1.objectForKey("engine")?.objectForKey("horsepower") as! NSNumber
                         self.torque = thing1.objectForKey("engine")?.objectForKey("torque") as! NSNumber
-                        self.compressionRatio = thing1.objectForKey("engine")?.objectForKey("compressionRatio") as! NSNumber
+                        if let value3 = thing1.objectForKey("engine")?.objectForKey("compressionRatio") as? NSNumber
+                        {
+                            self.compressionRatio = value3
+                        }
+                        else
+                        {
+                            
+                        }
                         self.aspiration = thing1.objectForKey("engine")?.objectForKey("compressorType") as! String
                         self.peakPower = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("horsepower") as! NSNumber
                         self.peakTorque = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("torque") as! NSNumber
-                        self.timing = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("timing") as! String
-                        self.gear = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("gear") as! String
                         
+                        
+                        if let value3 = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("timing") as? String
+                        {
+                            self.timing = value3
+                        }
+                        else
+                        {
+                            
+                        }
+                        if let value4 = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("gear") as? String
+                        {
+                            self.gear = value4
+                        }
+                        else
+                        {
+                            
+                        }
+                        self.engineSize = thing1.objectForKey("engine")?.objectForKey("size") as! NSNumber
                         self.transmissionName = thing1.objectForKey("transmission")?.objectForKey("name") as! String
                         self.transmissionType = thing1.objectForKey("transmission")?.objectForKey("transmissionType") as! String
                         self.numberOfSpeeds = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
@@ -148,10 +191,12 @@ class detailViewController: UIViewController {
         nvc.peakTorque = peakTorque
         nvc.timing = timing
         nvc.gear = gear
+        nvc.engineSize = engineSize
         nvc.transmissionName = transmissionName
         nvc.transmissionType = transmissionType
         nvc.numberOfSpeeds = numberOfSpeeds
         nvc.driveWheels = driveWheels
+        
         
         }
 
