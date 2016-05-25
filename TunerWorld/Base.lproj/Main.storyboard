@@ -80,7 +80,7 @@
                                     <color key="titleColor" red="0.045185477580000001" green="0.00058284195910000001" blue="0.9557150136" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0fM-cz-wKr" kind="show" id="RTA-nx-kxR"/>
+                                    <segue destination="0fM-cz-wKr" kind="show" identifier="specsSegue" id="RTA-nx-kxR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhc-iw-cCo">
@@ -90,7 +90,7 @@
                                     <color key="titleColor" red="0.131598522" green="0.15065950450000001" blue="0.9095193614" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vGH-1S-WZX" kind="show" id="a6t-eB-zN5"/>
+                                    <segue destination="vGH-1S-WZX" kind="show" identifier="colorSegue" id="a6t-eB-zN5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6V4-j7-pVU">
