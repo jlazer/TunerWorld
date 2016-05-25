@@ -132,6 +132,9 @@ class detailViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        
+        if segue.identifier == "specsSegue"
+        {
         let nvc = segue.destinationViewController as! SpecsViewController
         nvc.selectedMake = selectedMake
         nvc.selectedModel = selectedModel
@@ -152,6 +155,15 @@ class detailViewController: UIViewController {
         nvc.transmissionType = transmissionType
         nvc.numberOfSpeeds = numberOfSpeeds
         nvc.driveWheels = driveWheels
+        }
+        else
+        {
+            let nvc = segue.destinationViewController as! ColorViewController
+            nvc.makeNicename = makeNicename
+            nvc.modelNicename = modelNicename
+            nvc.selectedYear = selectedYear
+            
+        }
         
         }
 
