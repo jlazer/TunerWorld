@@ -44,7 +44,7 @@ class SpecsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        infoTextView.text = "Year: \(selectedYear)\nMake: \(selectedMake)\nModel: \(selectedModel)\nENGINE\nEngineCode: \(engineCode)\nCylinders: \(cylinderCount)\nDisplacement: \(displacement)\nConfiguration: \(configuration)"
+        infoTextView.text = "Year: \(selectedYear)\nMake: \(selectedMake)\nModel: \(selectedModel)\nENGINE\nEngineCode: \(engineCode)\nCylinders: \(cylinderCount)\nDisplacement: \(displacement)\nConfiguration: \(configuration)\nHorsepower: \(horsepower)\nTorque: \(torque)\nCompression Ratio: \(compressionRatio)\nAspiration: \(aspiration)\nPeak Power: \("
 
     }
 
