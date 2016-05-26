@@ -9,6 +9,7 @@
 import UIKit
 
 class ColorViewController: UIViewController {
+    @IBOutlet weak var colorTableView: UITableView!
     var selectedYear = ""
     var makeNicename = ""
     var modelNicename = ""
