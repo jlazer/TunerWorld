@@ -100,8 +100,14 @@ class detailViewController: UIViewController {
                         {
                             self.engineCode = ""
                         }
-                        self.cylinderCount = thing1.objectForKey("engine")?.objectForKey("cylinder") as! NSNumber
-                        
+                        if let value5 = thing1.objectForKey("engine")?.objectForKey("cylinder") as? NSNumber
+                        {
+                            self.cylinderCount = value5
+                        }
+                        else
+                        {
+                            
+                        }
                         
                         if let value2 = thing1.objectForKey("engine")?.objectForKey("displacement") as? NSNumber
                         {
@@ -112,7 +118,14 @@ class detailViewController: UIViewController {
                             
                         }
                         
-                        self.configuration = thing1.objectForKey("engine")?.objectForKey("configuration") as! String
+                        if let value7 = thing1.objectForKey("engine")?.objectForKey("configuration") as? String
+                        {
+                            self.configuration = value7
+                        }
+                        else
+                        {
+                            self.configuration = ""
+                        }
                         self.horsepower = thing1.objectForKey("engine")?.objectForKey("horsepower") as! NSNumber
                         self.torque = thing1.objectForKey("engine")?.objectForKey("torque") as! NSNumber
                         if let value3 = thing1.objectForKey("engine")?.objectForKey("compressionRatio") as? NSNumber
@@ -123,11 +136,30 @@ class detailViewController: UIViewController {
                         {
                             
                         }
-                        self.aspiration = thing1.objectForKey("engine")?.objectForKey("compressorType") as! String
-                        self.peakPower = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("horsepower") as! NSNumber
-                        self.peakTorque = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("torque") as! NSNumber
-                        
-                        
+                        if let value6 = thing1.objectForKey("engine")?.objectForKey("compressorType") as? String
+                        {
+                            self.aspiration = value6
+                        }
+                        else
+                        {
+                         self.aspiration = ""
+                        }
+                        if let value8 = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("horsepower") as? NSNumber
+                        {
+                            self.peakPower = value8
+                        }
+                        else
+                        {
+                            
+                        }
+                        if let value9 = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("torque") as? NSNumber
+                        {
+                            self.peakTorque = value9
+                        }
+                        else
+                        {
+                            
+                        }
                         if let value3 = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("timing") as? String
                         {
                             self.timing = value3
