@@ -44,8 +44,7 @@ class SpecsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        infoTextView.text = "Year: \(selectedYear)\nMake: \(selectedMake)\nModel: \(selectedModel)\nENGINE\nEngineCode: \(engineCode)\nCylinders: \(cylinderCount)\nLiters: \(engineSize)L\nDisplacement: \(displacement)cc\nConfiguration: \(configuration)\nHorsepower: \(horsepower)\nTorque: \(torque)\nCompression Ratio: \(compressionRatio)\nAspiration: \(aspiration)\nPeak Power: \(peakPower) RPM\nPeak Torque: \(peakTorque) RPM\nTiming: \(timing)\nGear: \(gear)\nTransmission Name: \(transmissionName)\nTransmission Type: \(transmissionType)\nNumber Of Speeds: \(numberOfSpeeds)\nDrive Wheels: \(driveWheels)\n"
+        infoTextView.text = "Year: \(selectedYear)\nMake: \(selectedMake)\nModel: \(selectedModel)\nENGINE\nEngineCode: \(engineCode)\nCylinders: \(cylinderCount)\nLiters: \(engineSize)L\nDisplacement: \(displacement)cc\nConfiguration: \(configuration)\nHorsepower: \(horsepower)\nTorque: \(torque)\nCompression Ratio: \(compressionRatio):1\nAspiration: \(aspiration)\nPeak Power: \(peakPower) RPM\nPeak Torque: \(peakTorque) RPM\nTiming: \(timing)\nGear: \(gear)\nTransmission Name: \(transmissionName)\nTransmission Type: \(transmissionType)\nNumber Of Speeds: \(numberOfSpeeds)\nDrive Wheels: \(driveWheels)\n"
 
         infoTextView.editable = false
         infoTextView.scrollEnabled = true

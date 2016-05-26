@@ -98,7 +98,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            self.engineCode = ""
+                            self.engineCode = "N/A"
                         }
                         if let value5 = thing1.objectForKey("engine")?.objectForKey("cylinder") as? NSNumber
                         {
@@ -106,7 +106,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            
+                            self.cylinderCount = 0
                         }
                         
                         if let value2 = thing1.objectForKey("engine")?.objectForKey("displacement") as? NSNumber
@@ -115,7 +115,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            
+                            self.displacement = 0
                         }
                         
                         if let value7 = thing1.objectForKey("engine")?.objectForKey("configuration") as? String
@@ -124,17 +124,32 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            self.configuration = ""
+                            self.configuration = "N/A"
                         }
-                        self.horsepower = thing1.objectForKey("engine")?.objectForKey("horsepower") as! NSNumber
-                        self.torque = thing1.objectForKey("engine")?.objectForKey("torque") as! NSNumber
+                        if let value15 = thing1.objectForKey("engine")?.objectForKey("horsepower") as? NSNumber
+                        {
+                            self.horsepower = value15
+                        }
+                        else
+                        {
+                            self.horsepower = 0
+                        }
+                        if let value16 = thing1.objectForKey("engine")?.objectForKey("torque") as? NSNumber
+                        {
+                            self.torque = value16
+                            
+                        }
+                        else
+                        {
+                            self.torque = 0
+                        }
                         if let value3 = thing1.objectForKey("engine")?.objectForKey("compressionRatio") as? NSNumber
                         {
                             self.compressionRatio = value3
                         }
                         else
                         {
-                            
+                            self.compressionRatio = 0
                         }
                         if let value6 = thing1.objectForKey("engine")?.objectForKey("compressorType") as? String
                         {
@@ -142,7 +157,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                         self.aspiration = ""
+                         self.aspiration = "N/A"
                         }
                         if let value8 = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("horsepower") as? NSNumber
                         {
@@ -150,7 +165,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            
+                            self.peakPower = 0
                         }
                         if let value9 = thing1.objectForKey("engine")?.objectForKey("rpm")?.objectForKey("torque") as? NSNumber
                         {
@@ -158,7 +173,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            
+                            self.peakTorque = 0
                         }
                         if let value3 = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("timing") as? String
                         {
@@ -166,7 +181,7 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            
+                            self.timing = "N/A"
                         }
                         if let value4 = thing1.objectForKey("engine")?.objectForKey("valve")?.objectForKey("gear") as? String
                         {
@@ -174,15 +189,49 @@ class detailViewController: UIViewController {
                         }
                         else
                         {
-                            
+                            self.gear = "N/A"
                         }
-                        self.engineSize = thing1.objectForKey("engine")?.objectForKey("size") as! NSNumber
-                        self.transmissionName = thing1.objectForKey("transmission")?.objectForKey("name") as! String
-                        self.transmissionType = thing1.objectForKey("transmission")?.objectForKey("transmissionType") as! String
-                        self.numberOfSpeeds = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
+                        if let value10 = thing1.objectForKey("engine")?.objectForKey("size") as? NSNumber
+                        {
+                            self.engineSize = value10
+                        }
+                        else
+                        {
+                            self.engineSize = 0
+                        }
+                        if let value11 = thing1.objectForKey("transmission")?.objectForKey("name") as? String
+                        {
+                           self.transmissionName = value11
+                        }
+                        else
+                        {
+                         self.transmissionName = "N/A"
+                        }
+                        if let value12 = thing1.objectForKey("transmission")?.objectForKey("transmissionType") as? String
+                        {
+                            self.transmissionType = value12
+                        }
+                        else
+                        {
+                            self.transmissionType = "N/A"
+                        }
                         
-                        self.driveWheels = thing1.objectForKey("drivenWheels") as! String
-                        
+                        if let value13 = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as? String
+                        {
+                            self.numberOfSpeeds = value13
+                        }
+                        else
+                        {
+                            self.numberOfSpeeds = "N/A"
+                        }
+                        if let value14 = thing1.objectForKey("drivenWheels") as? String
+                        {
+                            self.driveWheels = value14
+                        }
+                        else
+                        {
+                            self.driveWheels = "N/A"
+                        }
                         //self.msrp = thing1.objectForKey("price")?.objectForKey("baseMsrp") as! NSNumber
                         //print(thing1.objectAtIndex(0))
                         //self.numberProduced = thing1.objectForKey("transmission")?.objectForKey("numberOfSpeeds") as! String
