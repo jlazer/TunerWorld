@@ -66,7 +66,7 @@ class detailViewController: UIViewController {
         
         
         let myString = "https://api.edmunds.com/api/vehicle/v2/\(makeNicename)/\(modelNicename)/\(selectedYear)/styles?view=full&fmt=json&api_key=rduby6uckm74q7f3jy72x344"
-        print(myString)
+        //print(myString)
         let requestURL: NSURL = NSURL(string: myString )!
         
         

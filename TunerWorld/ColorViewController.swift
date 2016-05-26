@@ -8,13 +8,19 @@
 
 import UIKit
 
-class ColorViewController: UIViewController {
+class ColorViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     @IBOutlet weak var colorTableView: UITableView!
+    @IBOutlet weak var colorView: UIView!
+    
     var selectedYear = ""
     var makeNicename = ""
     var modelNicename = ""
     var styleJson = NSArray()
     var arrayOfColor = NSArray()
+    var arrayOfNames = [String]()
+    var arrayOfBlue = [Int]()
+    var arrayOfGreen = [Int]()
+    var arrayOfRed = [Int]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +30,7 @@ class ColorViewController: UIViewController {
         modelNicename = modelNicename.stringByReplacingOccurrencesOfString(" ", withString: "-")
         
         let myString = "https://api.edmunds.com/api/vehicle/v2/\(makeNicename)/\(modelNicename)/\(selectedYear)/styles?view=full&fmt=json&api_key=rduby6uckm74q7f3jy72x344"
-        print(myString)
+        //print(myString)
         let requestURL: NSURL = NSURL(string: myString )!
         
         
@@ -42,17 +48,27 @@ class ColorViewController: UIViewController {
                     self.styleJson = results.objectForKey("styles") as! NSArray
                     //print(self.styleJson)
                     
+                    //print(self.styleJson)
                     
-                    
-                    for thing1 in self.styleJson
+                    for item in self.styleJson
                     {
-                        //self.arrayOfColor = (thing1.objectForKey("Colors")?.objectForKey(1)!.objectForKey("Options"))! as! NSArray
-                       print(thing1.objectForKey("colors")?.objectAtIndex(1).objectForKey("options"))
-                        //print(thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode"))
-                        //self.engineCode = thing1.objectForKey("engine")?.objectForKey("manufacturerEngineCode") as! String
+                        //print(item)
+                        let color = item.objectForKey("colors")?.objectAtIndex(1) as! NSDictionary
+                        for extColor in color.objectForKey("options") as! NSArray
+                        {
+                            self.arrayOfNames.append(extColor.objectForKey("name") as! String)
+                            
+                            for rgbValues in extColor.objectForKey("colorChips") as! NSDictionary
+                            {
+                                self.arrayOfBlue.append(rgbValues.value.objectForKey("b") as! Int)
+                                self.arrayOfRed.append(rgbValues.value.objectForKey("r") as! Int)
+                                self.arrayOfGreen.append(rgbValues.value.objectForKey("g") as! Int)
+                                
+                            }
+                        }
                         
                     }
-                    
+                    self.colorTableView.reloadData()
                     
                     
                     
@@ -65,10 +81,19 @@ class ColorViewController: UIViewController {
         }
         
         task.resume()
+        
     }
-    
-    
-    
-    //UIColor(red: <#T##CGFloat#>, green: <#T##CGFloat#>, blue: <#T##CGFloat#>, alpha: 1.0)
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("myCell")
+        cell?.textLabel?.text = arrayOfNames[indexPath.row]
+        return cell!
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        colorView.backgroundColor = UIColor(red: CGFloat(arrayOfRed[indexPath.row])/255, green: CGFloat(arrayOfGreen[indexPath.row])/255, blue: CGFloat(arrayOfBlue[indexPath.row])/255, alpha: 1.0)
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arrayOfNames.count
+        
+    }
     
 }
